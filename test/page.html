@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" data-sinty-theme="light">
+<head>
+<meta charset="utf-8">
+<title>sintyui test</title>
+<link rel="stylesheet" href="../src/sintyui.css">
+<style>:root { --motion-duration-small: 0ms; }</style>
+<script src="../src/sintyui.js"></script>
+</head>
+<body class="sinty-surface">
+<form id="form">
+  <sinty-group id="group" heading="Network" description="How this device connects">
+    <sinty-row id="row" heading="Wi-Fi" subtitle="Home" activatable>
+      <sinty-icon slot="prefix" id="icon" name="network-wireless-symbolic"></sinty-icon>
+      <sinty-switch id="switch"></sinty-switch>
+    </sinty-row>
+    <sinty-row id="last" heading="Name"><sinty-entry id="entry" name="host" label="Name" value="pc1"></sinty-entry></sinty-row>
+  </sinty-group>
+  <sinty-button id="plain">Cancel</sinty-button>
+  <sinty-button id="suggested" variant="suggested" pill type="submit">Join</sinty-button>
+  <sinty-button id="destructive" variant="destructive">Leave</sinty-button>
+</form>
+<sinty-dialog id="dialog" heading="Leave the domain?">
+  <p>Accounts of the organisation will no longer sign in.</p>
+  <sinty-button slot="actions" id="dialog-button" pill>Cancel</sinty-button>
+</sinty-dialog>
+<sinty-dialog id="bare" heading="No actions"><p>Text</p></sinty-dialog>
+<pre id="result"></pre>
+<script src="checks.js"></script>
+</body>
+</html>

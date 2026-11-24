@@ -1,0 +1,12 @@
+go-next-symbolic
+go-previous-symbolic
+go-down-symbolic
+window-close-symbolic
+object-select-symbolic
+dialog-warning-symbolic
+edit-find-symbolic
+list-add-symbolic
+user-trash-symbolic
+emblem-system-symbolic
+network-wireless-symbolic
+bluetooth-active-symbolic

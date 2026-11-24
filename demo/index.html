@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sintyui</title>
+<link rel="stylesheet" href="../src/sintyui.css">
+<script src="../src/sintyui.js"></script>
+<style>
+  body { margin: 0; padding: 32px; min-height: 100vh; box-sizing: border-box; }
+  main { max-width: 520px; margin: 0 auto; }
+  h1 { font-size: 20px; font-weight: 700; margin: 0 0 20px; }
+  .buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+</style>
+</head>
+<body class="sinty-surface">
+<main>
+  <h1>Network</h1>
+  <sinty-group heading="Wi-Fi" description="Networks this device joins by itself">
+    <sinty-row heading="Wi-Fi" subtitle="Connected to Home"><sinty-icon slot="prefix" name="network-wireless-symbolic"></sinty-icon><sinty-switch checked></sinty-switch></sinty-row>
+    <sinty-row heading="Bluetooth"><sinty-icon slot="prefix" name="bluetooth-active-symbolic"></sinty-icon><sinty-switch></sinty-switch></sinty-row>
+    <sinty-row heading="Known networks" activatable><sinty-icon name="go-next-symbolic"></sinty-icon></sinty-row>
+  </sinty-group>
+  <sinty-group heading="Organisation">
+    <sinty-row heading="Domain"><sinty-entry value="example.com" label="Domain"></sinty-entry></sinty-row>
+    <sinty-row heading="Device name" subtitle="As the directory knows it"><sinty-entry placeholder="pc1" label="Device name"></sinty-entry></sinty-row>
+  </sinty-group>
+  <div class="buttons">
+    <sinty-button>Cancel</sinty-button>
+    <sinty-button variant="flat">Details</sinty-button>
+    <sinty-button variant="suggested" pill>Join</sinty-button>
+    <sinty-button variant="destructive" pill>Leave</sinty-button>
+  </div>
+</main>
+</body>
+</html>

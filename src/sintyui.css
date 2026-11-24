@@ -1,0 +1,22 @@
+@import url("../tokens/sintyui-tokens.css");
+
+.sinty-surface {
+  background-color: var(--sinty-window-tint);
+  color: var(--sinty-text-color);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+sinty-group {
+  display: block;
+  margin-bottom: 12px;
+}
+
+sinty-row,
+sinty-button,
+sinty-switch,
+sinty-entry,
+sinty-icon {
+  -webkit-tap-highlight-color: transparent;
+}

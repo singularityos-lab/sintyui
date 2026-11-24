@@ -1,0 +1,357 @@
+:root {
+  --sinty-text-color: #1a1a1a;
+  --sinty-window-bg: #f6f5f4;
+  --sinty-panel-bg: rgba(248, 248, 248, 0.85);
+  --sinty-panel-fg: #1a1a1a;
+  --sinty-dock-bg: rgba(240, 240, 240, 0.85);
+  --sinty-toolbar-bg: #e0e0e0;
+  --sinty-titlebar-bg: #f0efee;
+  --sinty-card-bg: color-mix(in srgb, var(--sinty-text-color) 4%, transparent);
+  --sinty-card-hover-bg: color-mix(in srgb, var(--sinty-text-color) 7%, transparent);
+  --sinty-border-color: color-mix(in srgb, var(--sinty-text-color) 8%, transparent);
+  --sinty-hover-btn-bg: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 16%, white) 94%, transparent);
+  --sinty-hover-btn-hover: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 26%, white) 97%, transparent);
+  --sinty-hover-btn-active: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 36%, white) 100%, transparent);
+  --sinty-hover-btn-border: color-mix(in srgb, var(--sinty-accent-color) 22%, transparent);
+  --sinty-hover-btn-fg: color-mix(in srgb, var(--sinty-accent-color) 26%, black);
+  --sinty-button-hover-bg: color-mix(in srgb, var(--sinty-accent-color) 12%, transparent);
+  --sinty-button-active-bg: color-mix(in srgb, var(--sinty-accent-color) 22%, transparent);
+  --sinty-button-hover-border: color-mix(in srgb, var(--sinty-accent-color) 40%, transparent);
+  --sinty-destructive-bg: #c01c28;
+  --sinty-destructive-fg: #ffffff;
+  --sinty-shadow-color: rgba(0, 0, 0, 0.45);
+  --sinty-surface-bg: #ffffff;
+  --sinty-surface-dim: #e8e8e8;
+  --sinty-surface-mid: #f0f0f0;
+  --sinty-surface-raised: #f5f5f5;
+  --sinty-popover-bg-color: var(--sinty-surface-raised);
+  --sinty-popover-fg-color: var(--sinty-text-color);
+  --sinty-surface-alt: #ebebeb;
+  --sinty-surface-bright: #f8f8f8;
+  --sinty-surface-overlay: rgba(245, 245, 245, 0.85);
+  --sinty-surface-scrim: rgba(240, 240, 240, 0.92);
+  --sinty-surface-scrim-heavy: rgba(246, 246, 246, 0.96);
+  --sinty-panel-solid-bg: #000000;
+  --sinty-keyboard-bg: #e8e8e8;
+  --sinty-overview-bg: rgba(240, 240, 240, 0.85);
+  --sinty-hover-white: color-mix(in srgb, var(--sinty-text-color) 6%, transparent);
+  --sinty-destructive-color: #e01b24;
+  --sinty-destructive-hover: #c01c28;
+  --sinty-success-color: #2ec27e;
+  --sinty-error-color: #e01b24;
+  --sinty-warning-color: #e5a50a;
+  --sinty-link-color: #1c71d8;
+  --sinty-link-active-color: #1060d0;
+  --sinty-focus-ring-color: color-mix(in srgb, var(--sinty-accent-color) 75%, black);
+  --sinty-window-bg-color: var(--sinty-window-bg);
+  --sinty-window-fg-color: var(--sinty-text-color);
+  --sinty-view-bg-color: var(--sinty-window-bg);
+  --sinty-card-bg-color: var(--sinty-card-bg);
+  --sinty-card-shade-color: rgba(0, 0, 0, 0.18);
+  --sinty-headerbar-bg-color: var(--sinty-toolbar-bg);
+  --sinty-sidebar-bg-color: var(--sinty-window-bg);
+  --sinty-secondary-sidebar-bg-color: var(--sinty-window-bg);
+  --sinty-fg-color: var(--sinty-text-color);
+  --sinty-borders: color-mix(in srgb, var(--sinty-text-color) 10%, transparent);
+  --sinty-window-tint: color-mix(in srgb, var(--sinty-text-color) 3%, transparent);
+  --sinty-media-caption-bg: rgba(0, 0, 0, 0.62);
+  --sinty-media-caption-fg: #ffffff;
+  --sinty-window-tint: color-mix(in srgb, #f6f5f4 92%, var(--sinty-accent-color));
+  --sinty-overview-bg: var(--sinty-window-tint);
+  --sinty-toolbar-bg: color-mix(in srgb, #f6f5f4 15%, color-mix(in srgb, #e8e8e8 95%, var(--sinty-accent-color)));
+  --sinty-headerbar-bg-color: var(--sinty-toolbar-bg);
+  --sinty-accent-bg: var(--sinty-accent-color);
+  --sinty-accent-bg-color: var(--sinty-accent-color);
+  --sinty-accent-fg-color: var(--sinty-accent-fg);
+  --sinty-accent-color: #3584e4;
+  --sinty-accent-fg: #ffffff;
+  --motion-duration-instant: 0ms;
+  --motion-duration-instant-exit: 0ms;
+  --motion-duration-micro: 90ms;
+  --motion-duration-micro-exit: 63ms;
+  --motion-duration-small: 140ms;
+  --motion-duration-small-exit: 98ms;
+  --motion-duration-medium: 220ms;
+  --motion-duration-medium-exit: 154ms;
+  --motion-duration-large: 320ms;
+  --motion-duration-large-exit: 224ms;
+  --motion-duration-page: 380ms;
+  --motion-duration-page-exit: 266ms;
+  --motion-duration-scene: 600ms;
+  --motion-duration-scene-exit: 420ms;
+  --motion-curve-linear: linear;
+  --motion-curve-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-curve-enter: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --motion-curve-exit: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --motion-curve-emphasized: cubic-bezier(0.22, 1, 0.36, 1);
+  font-family: 'Inter', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-sinty-theme="light"]) {
+    --sinty-text-color: #ffffff;
+    --sinty-window-bg: #242424;
+    --sinty-panel-bg: #000000;
+    --sinty-panel-fg: #ffffff;
+    --sinty-dock-bg: #242424;
+    --sinty-toolbar-bg: #303030;
+    --sinty-titlebar-bg: #2d2d2e;
+    --sinty-card-bg: color-mix(in srgb, var(--sinty-text-color) 8%, transparent);
+    --sinty-card-hover-bg: color-mix(in srgb, var(--sinty-text-color) 12%, transparent);
+    --sinty-border-color: color-mix(in srgb, var(--sinty-text-color) 10%, transparent);
+    --sinty-hover-btn-bg: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 26%, black) 92%, transparent);
+    --sinty-hover-btn-hover: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 36%, black) 95%, transparent);
+    --sinty-hover-btn-active: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 46%, black) 100%, transparent);
+    --sinty-hover-btn-border: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 50%, white) 18%, transparent);
+    --sinty-hover-btn-fg: color-mix(in srgb, var(--sinty-accent-color) 10%, white);
+    --sinty-button-hover-bg: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 50%, white) 18%, transparent);
+    --sinty-button-active-bg: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 65%, white) 28%, transparent);
+    --sinty-button-hover-border: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 50%, white) 34%, transparent);
+    --sinty-destructive-bg: #c01c28;
+    --sinty-destructive-fg: #ffffff;
+    --sinty-shadow-color: #000000;
+    --sinty-surface-bg: #1e1e1e;
+    --sinty-surface-dim: #1a1a1a;
+    --sinty-surface-mid: #2a2a2a;
+    --sinty-surface-raised: #2d2d2d;
+    --sinty-popover-bg-color: var(--sinty-surface-raised);
+    --sinty-popover-fg-color: var(--sinty-text-color);
+    --sinty-surface-alt: #303030;
+    --sinty-surface-bright: #3a3a3a;
+    --sinty-surface-overlay: rgba(30, 30, 30, 0.7);
+    --sinty-surface-scrim: rgba(20, 20, 20, 0.82);
+    --sinty-surface-scrim-heavy: rgba(18, 18, 18, 0.92);
+    --sinty-panel-solid-bg: #000000;
+    --sinty-keyboard-bg: var(--sinty-panel-solid-bg);
+    --sinty-overview-bg: rgba(0, 0, 0, 0.75);
+    --sinty-hover-white: color-mix(in srgb, var(--sinty-text-color) 8%, transparent);
+    --sinty-destructive-color: #ff3b30;
+    --sinty-destructive-hover: #a5171f;
+    --sinty-success-color: #4ade80;
+    --sinty-error-color: #f87171;
+    --sinty-warning-color: #ff9a00;
+    --sinty-link-color: #5294E2;
+    --sinty-link-active-color: #1060d0;
+    --sinty-focus-ring-color: color-mix(in srgb, var(--sinty-accent-color) 70%, white);
+    --sinty-window-bg-color: var(--sinty-window-bg);
+    --sinty-window-fg-color: var(--sinty-text-color);
+    --sinty-view-bg-color: var(--sinty-window-bg);
+    --sinty-card-bg-color: var(--sinty-card-bg);
+    --sinty-card-shade-color: rgba(0, 0, 0, 0.36);
+    --sinty-headerbar-bg-color: var(--sinty-toolbar-bg);
+    --sinty-sidebar-bg-color: var(--sinty-window-bg);
+    --sinty-secondary-sidebar-bg-color: var(--sinty-window-bg);
+    --sinty-fg-color: var(--sinty-text-color);
+    --sinty-borders: color-mix(in srgb, var(--sinty-text-color) 12%, transparent);
+    --sinty-window-tint: color-mix(in srgb, var(--sinty-text-color) 4%, transparent);
+    --sinty-media-caption-bg: rgba(0, 0, 0, 0.55);
+    --sinty-media-caption-fg: #ffffff;
+    --sinty-window-tint: color-mix(in srgb, #242424 92%, var(--sinty-accent-color));
+    --sinty-overview-bg: var(--sinty-window-tint);
+    --sinty-toolbar-bg: color-mix(in srgb, #242424 25%, color-mix(in srgb, #1a1a1a 95%, var(--sinty-accent-color)));
+    --sinty-headerbar-bg-color: var(--sinty-toolbar-bg);
+    --sinty-accent-bg: var(--sinty-accent-color);
+    --sinty-accent-bg-color: var(--sinty-accent-color);
+    --sinty-accent-fg-color: var(--sinty-accent-fg);
+    --sinty-accent-color: #3584e4;
+    --sinty-accent-fg: #ffffff;
+  }
+  :root:not([data-sinty-theme="light"])[data-sinty-accent="blue"] {
+    --sinty-accent-color: #3584e4;
+    --sinty-accent-fg: #ffffff;
+  }
+  :root:not([data-sinty-theme="light"])[data-sinty-accent="teal"] {
+    --sinty-accent-color: #2190a4;
+    --sinty-accent-fg: #ffffff;
+  }
+  :root:not([data-sinty-theme="light"])[data-sinty-accent="green"] {
+    --sinty-accent-color: #3a944a;
+    --sinty-accent-fg: #ffffff;
+  }
+  :root:not([data-sinty-theme="light"])[data-sinty-accent="yellow"] {
+    --sinty-accent-color: #e5a50a;
+    --sinty-accent-fg: #1c1c1c;
+  }
+  :root:not([data-sinty-theme="light"])[data-sinty-accent="orange"] {
+    --sinty-accent-color: #e66100;
+    --sinty-accent-fg: #ffffff;
+  }
+  :root:not([data-sinty-theme="light"])[data-sinty-accent="red"] {
+    --sinty-accent-color: #e01b24;
+    --sinty-accent-fg: #ffffff;
+  }
+  :root:not([data-sinty-theme="light"])[data-sinty-accent="pink"] {
+    --sinty-accent-color: #d56199;
+    --sinty-accent-fg: #ffffff;
+  }
+  :root:not([data-sinty-theme="light"])[data-sinty-accent="purple"] {
+    --sinty-accent-color: #9c54b4;
+    --sinty-accent-fg: #ffffff;
+  }
+  :root:not([data-sinty-theme="light"])[data-sinty-accent="slate"] {
+    --sinty-accent-color: #787878;
+    --sinty-accent-fg: #ffffff;
+  }
+}
+:root[data-sinty-theme="dark"] {
+  --sinty-text-color: #ffffff;
+  --sinty-window-bg: #242424;
+  --sinty-panel-bg: #000000;
+  --sinty-panel-fg: #ffffff;
+  --sinty-dock-bg: #242424;
+  --sinty-toolbar-bg: #303030;
+  --sinty-titlebar-bg: #2d2d2e;
+  --sinty-card-bg: color-mix(in srgb, var(--sinty-text-color) 8%, transparent);
+  --sinty-card-hover-bg: color-mix(in srgb, var(--sinty-text-color) 12%, transparent);
+  --sinty-border-color: color-mix(in srgb, var(--sinty-text-color) 10%, transparent);
+  --sinty-hover-btn-bg: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 26%, black) 92%, transparent);
+  --sinty-hover-btn-hover: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 36%, black) 95%, transparent);
+  --sinty-hover-btn-active: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 46%, black) 100%, transparent);
+  --sinty-hover-btn-border: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 50%, white) 18%, transparent);
+  --sinty-hover-btn-fg: color-mix(in srgb, var(--sinty-accent-color) 10%, white);
+  --sinty-button-hover-bg: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 50%, white) 18%, transparent);
+  --sinty-button-active-bg: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 65%, white) 28%, transparent);
+  --sinty-button-hover-border: color-mix(in srgb, color-mix(in srgb, var(--sinty-accent-color) 50%, white) 34%, transparent);
+  --sinty-destructive-bg: #c01c28;
+  --sinty-destructive-fg: #ffffff;
+  --sinty-shadow-color: #000000;
+  --sinty-surface-bg: #1e1e1e;
+  --sinty-surface-dim: #1a1a1a;
+  --sinty-surface-mid: #2a2a2a;
+  --sinty-surface-raised: #2d2d2d;
+  --sinty-popover-bg-color: var(--sinty-surface-raised);
+  --sinty-popover-fg-color: var(--sinty-text-color);
+  --sinty-surface-alt: #303030;
+  --sinty-surface-bright: #3a3a3a;
+  --sinty-surface-overlay: rgba(30, 30, 30, 0.7);
+  --sinty-surface-scrim: rgba(20, 20, 20, 0.82);
+  --sinty-surface-scrim-heavy: rgba(18, 18, 18, 0.92);
+  --sinty-panel-solid-bg: #000000;
+  --sinty-keyboard-bg: var(--sinty-panel-solid-bg);
+  --sinty-overview-bg: rgba(0, 0, 0, 0.75);
+  --sinty-hover-white: color-mix(in srgb, var(--sinty-text-color) 8%, transparent);
+  --sinty-destructive-color: #ff3b30;
+  --sinty-destructive-hover: #a5171f;
+  --sinty-success-color: #4ade80;
+  --sinty-error-color: #f87171;
+  --sinty-warning-color: #ff9a00;
+  --sinty-link-color: #5294E2;
+  --sinty-link-active-color: #1060d0;
+  --sinty-focus-ring-color: color-mix(in srgb, var(--sinty-accent-color) 70%, white);
+  --sinty-window-bg-color: var(--sinty-window-bg);
+  --sinty-window-fg-color: var(--sinty-text-color);
+  --sinty-view-bg-color: var(--sinty-window-bg);
+  --sinty-card-bg-color: var(--sinty-card-bg);
+  --sinty-card-shade-color: rgba(0, 0, 0, 0.36);
+  --sinty-headerbar-bg-color: var(--sinty-toolbar-bg);
+  --sinty-sidebar-bg-color: var(--sinty-window-bg);
+  --sinty-secondary-sidebar-bg-color: var(--sinty-window-bg);
+  --sinty-fg-color: var(--sinty-text-color);
+  --sinty-borders: color-mix(in srgb, var(--sinty-text-color) 12%, transparent);
+  --sinty-window-tint: color-mix(in srgb, var(--sinty-text-color) 4%, transparent);
+  --sinty-media-caption-bg: rgba(0, 0, 0, 0.55);
+  --sinty-media-caption-fg: #ffffff;
+  --sinty-window-tint: color-mix(in srgb, #242424 92%, var(--sinty-accent-color));
+  --sinty-overview-bg: var(--sinty-window-tint);
+  --sinty-toolbar-bg: color-mix(in srgb, #242424 25%, color-mix(in srgb, #1a1a1a 95%, var(--sinty-accent-color)));
+  --sinty-headerbar-bg-color: var(--sinty-toolbar-bg);
+  --sinty-accent-bg: var(--sinty-accent-color);
+  --sinty-accent-bg-color: var(--sinty-accent-color);
+  --sinty-accent-fg-color: var(--sinty-accent-fg);
+  --sinty-accent-color: #3584e4;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-accent="blue"] {
+  --sinty-accent-color: #3584e4;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-theme="dark"][data-sinty-accent="blue"] {
+  --sinty-accent-color: #3584e4;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-accent="teal"] {
+  --sinty-accent-color: #2190a4;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-theme="dark"][data-sinty-accent="teal"] {
+  --sinty-accent-color: #2190a4;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-accent="green"] {
+  --sinty-accent-color: #3a944a;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-theme="dark"][data-sinty-accent="green"] {
+  --sinty-accent-color: #3a944a;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-accent="yellow"] {
+  --sinty-accent-color: #b78408;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-theme="dark"][data-sinty-accent="yellow"] {
+  --sinty-accent-color: #e5a50a;
+  --sinty-accent-fg: #1c1c1c;
+}
+:root[data-sinty-accent="orange"] {
+  --sinty-accent-color: #e66100;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-theme="dark"][data-sinty-accent="orange"] {
+  --sinty-accent-color: #e66100;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-accent="red"] {
+  --sinty-accent-color: #e01b24;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-theme="dark"][data-sinty-accent="red"] {
+  --sinty-accent-color: #e01b24;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-accent="pink"] {
+  --sinty-accent-color: #d56199;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-theme="dark"][data-sinty-accent="pink"] {
+  --sinty-accent-color: #d56199;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-accent="purple"] {
+  --sinty-accent-color: #9141ac;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-theme="dark"][data-sinty-accent="purple"] {
+  --sinty-accent-color: #9c54b4;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-accent="slate"] {
+  --sinty-accent-color: #787878;
+  --sinty-accent-fg: #ffffff;
+}
+:root[data-sinty-theme="dark"][data-sinty-accent="slate"] {
+  --sinty-accent-color: #787878;
+  --sinty-accent-fg: #ffffff;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration-instant: 0ms;
+    --motion-duration-instant-exit: 0ms;
+    --motion-duration-micro: 90ms;
+    --motion-duration-micro-exit: 63ms;
+    --motion-duration-small: 140ms;
+    --motion-duration-small-exit: 98ms;
+    --motion-duration-medium: 140ms;
+    --motion-duration-medium-exit: 98ms;
+    --motion-duration-large: 140ms;
+    --motion-duration-large-exit: 98ms;
+    --motion-duration-page: 140ms;
+    --motion-duration-page-exit: 98ms;
+    --motion-duration-scene: 140ms;
+    --motion-duration-scene-exit: 98ms;
+    --motion-curve-linear: linear;
+    --motion-curve-standard: linear;
+    --motion-curve-enter: linear;
+    --motion-curve-exit: linear;
+    --motion-curve-emphasized: linear;
+  }
+}
