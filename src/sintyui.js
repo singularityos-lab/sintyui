@@ -45,7 +45,7 @@
     :host([variant="destructive"]) button {
       background-color: var(--sinty-destructive-hover);
       border-color: var(--sinty-destructive-hover);
-      color: var(--sinty-text-color);
+      color: var(--sinty-destructive-fg);
     }
   `);
 

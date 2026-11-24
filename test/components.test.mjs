@@ -157,6 +157,17 @@ test('components match libsingularity and behave', async (t) => {
     assert.equal(c.lightText, rgb(light.match(/@define-color text_color (#[0-9a-f]{6});/)[1]));
     assert.equal(c.darkText, rgb(dark.match(/@define-color text_color (#[0-9a-f]{6});/)[1]));
     assert.ok(c.suggestedIsAccent);
+    assert.equal(s.destructive.color, rgb(light.match(/@define-color destructive_fg (#[0-9a-f]{6});/)[1]));
+    assert.equal(rule(css, 'button.destructive-action').color, '@destructive_fg');
+    const lum = (c) => {
+      const [r, g, b] = c.match(/\d+/g).slice(0, 3).map((v) => {
+        const x = v / 255;
+        return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4;
+      });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    };
+    const [hi, lo] = [lum(s.destructive.color), lum(s.destructive['background-color'])].sort((a, b) => b - a);
+    assert.ok((hi + 0.05) / (lo + 0.05) >= 4.5, 'destructive button text contrast');
     assert.equal(c.tealAccent, rgb(token(tokens, ':root[data-sinty-accent="teal"]', '--sinty-accent-color')));
     assert.equal(c.darkTealAccent, rgb(token(tokens, ':root[data-sinty-theme="dark"][data-sinty-accent="teal"]', '--sinty-accent-color')));
   });
