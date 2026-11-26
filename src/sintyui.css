@@ -20,3 +20,129 @@ sinty-entry,
 sinty-icon {
   -webkit-tap-highlight-color: transparent;
 }
+
+html.sinty-full,
+html.sinty-full body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+sinty-app { height: 100%; }
+
+sinty-menu:not(:popover-open),
+sinty-toast:not([slot]) { display: none; }
+
+.sinty-data-view {
+  display: grid;
+  grid-template-columns: var(--sinty-columns, minmax(0, 1fr) 96px 150px 32px);
+  font-size: 13px;
+  user-select: none;
+}
+
+.sinty-data-view > .head,
+.sinty-data-view > .item {
+  display: contents;
+}
+
+.sinty-data-view > .head > * {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 24px;
+  padding: 4px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--sinty-text-color) 70%, transparent);
+  border-bottom: 1px solid var(--sinty-border-color);
+  white-space: nowrap;
+}
+
+.sinty-data-view > .head > button {
+  font: inherit;
+  border: 0;
+  border-bottom: 1px solid var(--sinty-border-color);
+  border-radius: 0;
+  background-color: transparent;
+  text-align: start;
+  cursor: default;
+}
+
+.sinty-data-view > .head > button:hover { background-color: color-mix(in srgb, var(--sinty-text-color) 5%, transparent); }
+.sinty-data-view > .head > [aria-sort="ascending"]::after { content: '\25B4'; }
+.sinty-data-view > .head > [aria-sort="descending"]::after { content: '\25BE'; }
+
+.sinty-data-view > .item > * {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 36px;
+  padding: 0 8px;
+}
+
+.sinty-data-view > .item:hover > * { background-color: color-mix(in srgb, var(--sinty-text-color) 5%, transparent); }
+.sinty-data-view > .item[aria-selected="true"] > * { background-color: color-mix(in srgb, var(--sinty-accent-color) 20%, transparent); }
+.sinty-data-view > .item.drop-target > * { background-color: color-mix(in srgb, var(--sinty-accent-color) 32%, transparent); }
+.sinty-data-view > .item:focus-visible { outline: none; }
+.sinty-data-view > .item:focus-visible > * { box-shadow: inset 0 1px 0 var(--sinty-focus-ring-color), inset 0 -1px 0 var(--sinty-focus-ring-color); }
+.sinty-data-view > .item > :first-child { border-radius: 10px 0 0 10px; }
+.sinty-data-view > .item > :last-child { border-radius: 0 10px 10px 0; justify-content: flex-end; }
+.sinty-data-view .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sinty-data-view .dim { color: color-mix(in srgb, var(--sinty-text-color) 60%, transparent); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-variant-numeric: tabular-nums; }
+
+.sinty-tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: 4px 12px;
+  user-select: none;
+}
+
+.sinty-tile-grid > .item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  box-sizing: border-box;
+  min-width: 100px;
+  min-height: 74px;
+  padding: 8px;
+  border-radius: 10px;
+  text-align: center;
+  outline: none;
+}
+
+.sinty-tile-grid > .item:hover { background-color: color-mix(in srgb, var(--sinty-text-color) 5%, transparent); }
+.sinty-tile-grid > .item[aria-selected="true"] { background-color: color-mix(in srgb, var(--sinty-accent-color) 20%, transparent); }
+.sinty-tile-grid > .item.drop-target { background-color: color-mix(in srgb, var(--sinty-accent-color) 32%, transparent); }
+.sinty-tile-grid > .item:focus-visible { box-shadow: inset 0 0 0 2px var(--sinty-focus-ring-color); }
+.sinty-tile-grid .thumb {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  --sinty-icon-size: 56px;
+}
+.sinty-tile-grid .thumb img {
+  max-width: 64px;
+  max-height: 64px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+.sinty-tile-grid .name {
+  color: color-mix(in srgb, var(--sinty-text-color) 90%, transparent);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 100%;
+  font-size: 12px;
+  line-height: 1.3;
+  word-break: break-word;
+}
+.sinty-tile-grid .dim { font-size: 11px; opacity: 0.55; }

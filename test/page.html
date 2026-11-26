@@ -25,6 +25,18 @@
   <sinty-button slot="actions" id="dialog-button" pill>Cancel</sinty-button>
 </sinty-dialog>
 <sinty-dialog id="bare" heading="No actions"><p>Text</p></sinty-dialog>
+<sinty-app id="app" style="height: 480px; width: 1000px">
+  <sinty-sidebar-label slot="sidebar" id="label">Places</sinty-sidebar-label>
+  <sinty-sidebar-row slot="sidebar" id="side" icon="folder-symbolic" heading="Files" badge="3" active></sinty-sidebar-row>
+  <sinty-sidebar-row slot="sidebar" id="side2" icon="user-trash-symbolic" heading="Trash"></sinty-sidebar-row>
+  <sinty-bubble slot="bubbles" id="bubble" icon="list-add-symbolic" text="Upload"></sinty-bubble>
+  <sinty-bubble slot="bubbles" id="ibubble" icon="view-more-symbolic" label="More"></sinty-bubble>
+  <sinty-search slot="bubbles" id="search" placeholder="Search"></sinty-search>
+  <sinty-segmented slot="bubbles" id="seg" value="b"><button value="a">List</button><button value="b">Grid</button></sinty-segmented>
+  <sinty-status-page id="status" icon="folder" heading="Empty" description="Nothing here"></sinty-status-page>
+  <sinty-progress id="progress" value="0.5"></sinty-progress>
+  <sinty-avatar id="avatar" name="Anna Rossi"></sinty-avatar>
+</sinty-app>
 <pre id="result"></pre>
 <script src="checks.js"></script>
 </body>

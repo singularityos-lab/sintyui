@@ -78,7 +78,7 @@ function rule(list, selector) {
 }
 
 function sides(value) {
-  const p = value.split(/\s+/);
+  const p = value.split(/\s+/).map((v) => (v === '0' ? '0px' : v));
   const [t, r = t, b = t, l = r] = p;
   return { 'padding-top': t, 'padding-right': r, 'padding-bottom': b, 'padding-left': l };
 }
@@ -151,6 +151,91 @@ test('components match libsingularity and behave', async (t) => {
     const dtitle = rule(css, '.dialog-titlebar .title');
     assert.equal(s.dialogTitle['font-size'], dtitle['font-size']);
     assert.equal(s.dialogTitle['font-weight'], dtitle['font-weight']);
+  });
+
+  await t.test('the app shell follows the toolkit', () => {
+    const pick = (o) => Object.fromEntries(Object.keys(sides('0')).map((k) => [k, o[k]]));
+    const side = rule(css, '.singularity-sidebar-row');
+    assert.deepEqual(pick(s.sideRow), sides(side.padding));
+    assert.equal(s.sideRow['border-top-left-radius'], side['border-radius']);
+    const label = rule(css, '.sidebar-section-label label');
+    assert.equal(s.sideLabel['font-size'], label['font-size']);
+    assert.equal(s.sideLabel.opacity, label.opacity);
+    const badge = rule(css, '.singularity-sidebar-badge');
+    assert.equal(s.badge['min-width'], badge['min-width']);
+    assert.equal(s.badge['min-height'], badge['min-height']);
+    assert.equal(s.badge['font-size'], badge['font-size']);
+    assert.equal(s.badge['font-weight'], badge['font-weight']);
+    const bubble = rule(css, '.singularity-hover-btn');
+    for (const o of [s.bubble, s.iconBubble]) {
+      assert.equal(o['min-height'], bubble['min-height']);
+      assert.equal(o['min-width'], bubble['min-width']);
+      assert.equal(o['border-top-left-radius'], bubble['border-radius']);
+    }
+    assert.deepEqual(pick(s.bubble), sides(rule(css, '.singularity-hover-btn.text-button').padding));
+    const imagePad = sides(rule(css, '.singularity-hover-btn.image-button').padding);
+    assert.deepEqual(pick(s.iconBubble), imagePad);
+    const outer = (pad) => parseFloat(bubble['min-height']) + parseFloat(pad['padding-top']) + parseFloat(pad['padding-bottom']) + 2;
+    assert.deepEqual(c.bubbleHeights.map((h) => Math.round(h * 10) / 10), [outer(sides(rule(css, '.singularity-hover-btn.text-button').padding)), outer(imagePad)]);
+    const seg = rule(css, '.segmented-control');
+    assert.deepEqual(pick(s.seg), sides(seg.padding));
+    assert.equal(s.seg['border-top-left-radius'], seg['border-radius']);
+    const segButton = rule(css, '.segmented-button');
+    assert.deepEqual(pick(s.segButton), sides(segButton.padding));
+    assert.equal(s.segButton['min-height'], segButton['min-height']);
+    assert.equal(s.segButton['font-size'], segButton['font-size']);
+    assert.equal(s.segButton['border-top-left-radius'], segButton['border-radius']);
+    assert.equal(s.statusIcon, '64px');
+    assert.equal(s.statusTitle['font-size'], rule(css, '.status-page:not(.compact) .status-page-title')['font-size']);
+    const trough = rule(css, 'progressbar trough');
+    assert.equal(s.trough['min-height'], trough['min-height']);
+    assert.equal(s.trough['border-top-left-radius'], trough['border-radius']);
+    const menu = rule(css, 'popover.menu > contents');
+    assert.deepEqual(pick(s.menu), sides(menu.padding));
+    assert.equal(s.menu['border-top-left-radius'], menu['border-radius']);
+    const item = rule(css, '.menu-row');
+    assert.deepEqual(pick(s.menuItem), sides(item.padding));
+    assert.equal(s.menuItem['min-height'], item['min-height']);
+    assert.equal(s.menuItem['min-width'], item['min-width']);
+    assert.equal(s.menuItem['border-top-left-radius'], item['border-radius']);
+    const toast = rule(css, '.singularity-toast');
+    assert.deepEqual(pick(s.toast), sides(toast.padding));
+    assert.equal(s.toast['border-top-left-radius'], toast['border-radius']);
+  });
+
+  await t.test('app shell parts behave', async () => {
+    assert.equal(c.sideRole, 'link');
+    assert.equal(c.sideLabel, 'Files, 3');
+    assert.equal(c.sideCurrent, 'page');
+    assert.ok(c.sideBadgeHidden);
+    assert.deepEqual(c.segInitial, ['false', 'true']);
+    assert.deepEqual(c.segAfterClick, ['a', 1, 'true']);
+    assert.equal(c.iconBubbleLabel, 'More');
+    assert.equal(c.bubbleText, 'Upload');
+    assert.deepEqual(c.search, ['lisb', 1]);
+    assert.equal(c.entryInputs, 1);
+    assert.ok(c.statusColorIcon);
+    assert.equal(c.progressFill, '50%');
+    assert.equal(c.avatar, 'AR');
+    assert.equal(c.colorIconPending, 'none');
+    assert.match(c.colorIconUrl, /^url\("blob:/);
+    assert.equal(c.colorIconAccent[1], false);
+    const tool = join(root, '..', 'singularity-themes', 'tools', 'accent-icons.py');
+    if (existsSync(tool)) {
+      const script = 'import importlib.util,json,sys\ns=importlib.util.spec_from_file_location("a",sys.argv[1]);m=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nprint(json.dumps(m.palette_for(sys.argv[2])))';
+      const palette = JSON.parse(await new Promise((ok, fail) => execFile('python3', ['-c', script, tool, c.colorIconAccent[0]], (err, out) => (err ? fail(err) : ok(out)))));
+      assert.ok(c.colorIconAccent[2].includes(palette.front) && c.colorIconAccent[2].includes(palette.back_top));
+    }
+    assert.match(c.plainColorIconUrl, /icons\/color\/x-office-presentation\.svg/);
+    assert.ok(c.colorIconServed);
+    assert.ok(c.menuOpen);
+    assert.deepEqual(c.menuRoles, ['menu', 'menuitem', 'Open']);
+    assert.equal(c.menuSeparators, 1);
+    assert.ok(c.menuDisabledIgnored);
+    assert.equal(c.menuRan, 1);
+    assert.ok(c.menuRemoved);
+    assert.deepEqual(c.toastSlot, ['app', 'toast']);
+    assert.equal(c.toastAction, 1);
   });
 
   await t.test('colours come from the generated tokens', () => {

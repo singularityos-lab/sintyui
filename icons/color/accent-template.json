@@ -1,0 +1,18 @@
+{
+  "template": {
+    "back_depth": "#21628c",
+    "back_mid": "#2c6c98",
+    "back_top": "#00315f",
+    "back_bot": "#001d3c",
+    "front_depth": "#4889b3",
+    "rim": "#71bcf1",
+    "front": "#0b98bd",
+    "glow_a": "#048cc4",
+    "glow_b": "#03d1d6",
+    "mark": "#e6f7ff",
+    "mark_shade": "#06456d"
+  },
+  "hue_follow": 0.35,
+  "min_chroma_ratio": 0.15,
+  "neutral_chroma": 0.02
+}
